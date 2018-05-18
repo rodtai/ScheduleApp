@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel='stylesheet' href='/stylesheets/calendar.css'/>
+</head>
+<body>
+<% include navbar %>
+<h1><%= title %></h1>
+<p><b>Date:</b> <%= month %> <%= day %>, <%= year %></p>
+<% if (typeof otherMonthObj !== "undefined"){ %>
+<a href="/calendar/<%= otherMonthObj.prev %>"><%= otherMonthObj.prev %></a>
+<a href="/calendar/<%= otherMonthObj.after %>"><%= otherMonthObj.after %></a>
+<% } %>
+<table>
+    <tr>
+        <% for (var k = 0; k < dayArr.length; k++){ %>
+        <th><%= dayArr[k] %></th>
+        <% } %>
+    </tr>
+    <% for (var i = 0; i < monthArr.length; i++){ %>
+    <tr>
+        <% for (var j = 0; j < monthArr[i].length; j++){ %>
+        <% if (monthArr[i][j] != 0){ %>
+        <td
+                <% if(monthArr[i][j] == day){ %>
+                id="currentDay"
+                <% } %>
+                %>
+        ><%= monthArr[i][j] %></td>
+        <% }else{ %>
+        <td></td>
+        <% } %>
+        <% } %>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

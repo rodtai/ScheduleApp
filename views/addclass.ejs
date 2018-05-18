@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<% include header %>
+<body>
+<% include navbar %>
+<h1>Add Class</h1>
+<form name="AddClassForm" method="POST" action="/class/addform/submit">
+    <table>
+        <tr>
+            <td>Class</td>
+            <td><input type="text" name="class"></td>
+        </tr>
+        <tr>
+            <td>Teacher</td>
+            <td><input type="text" name="teacher"></td>
+        </tr>
+        <tr>
+            <td>Days</td>
+            <td>Start Mod</td>
+            <td>End Mod</td>
+        </tr>
+        <% for(var k = 0; k < daysArr.length; k++){ %>
+        <tr>
+            <td><input type="checkbox" name="day" value="<%= daysArr[k] %>"><%= daysArr[k] %></td>
+            <td>
+                <select name="startmod<%= daysArr[k] %>">
+                    <% for(var j = 1; j < 28; j++){ %>
+                    <option value="<%= j %>"><%= j %></option>
+                    <% } %>
+                </select>
+            </td>
+            <td>
+                <select name="endmod<%= daysArr[k] %>">
+                    <% for(var j = 1; j < 28; j++){ %>
+                    <option disabled value="<%= j %>"><%= j %></option>
+                    <% } %>
+                </select>
+            </td>
+        </tr>
+        <% } %>
+        <tr>
+            <td colspan="2"><input type="submit" value="Save"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

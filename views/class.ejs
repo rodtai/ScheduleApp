@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<% include header %>
+<body>
+<% include navbar %>
+<h1><%= course.name %></h1>
+<table>
+    <tr>
+        <th>Teacher:</th>
+        <td><%= course.teacher %></td>
+    </tr>
+    <tr>
+        <th>Days</th>
+        <td>Mods</td>
+    </tr>
+    <%         %>
+    <% if(course.monday != undefined){ %>
+    <tr>
+        <th>Monday</th>
+        <td><%= course.monday.startmod %> - <%= course.monday.endmod %></td>
+    </tr>
+    <% } %>
+    <% if(course.tuesday != undefined){ %>
+    <tr>
+        <th>Tuesday</th>
+        <td><%= course.tuesday.startmod %> - <%= course.tuesday.endmod %></td>
+    </tr>
+    <% } %>
+    <% if(course.wednesday != undefined){ %>
+    <tr>
+        <th>Wednesday</th>
+        <td><%= course.wednesday.startmod %> - <%= course.wednesday.endmod %></td>
+    </tr>
+    <% } %>
+    <% if(course.thursday != undefined){ %>
+    <tr>
+        <th>Thursday</th>
+        <td><%= course.thursday.startmod %> - <%= course.thursday.endmod %></td>
+    </tr>
+    <% } %>
+    <% if(course.friday != undefined){ %>
+    <tr>
+        <th>Friday</th>
+        <td><%= course.friday.startmod %> - <%= course.friday.endmod %></td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

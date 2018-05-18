@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<% include header %>
+<body>
+<% include navbar %>
+<h1>Schedule</h1>
+<table>
+    <tr>
+        <td>Mods</td>
+        <td>Class</td>
+    </tr>
+    <% for(var i = 0; i < schedule.length; i++) { %>
+    <tr>
+        <td><%= schedule[i][chosenday].startmod %>-<%= schedule[i][chosenday].endmod %></td>
+        <td><a href="/class/<%= schedule[i].name %>"><%= schedule[i].name %></a></td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>
