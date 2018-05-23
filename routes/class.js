@@ -1,10 +1,14 @@
 var express = require('express');
 var router = express.Router();
+var classController = require('../controllers/classcontroller');
+
+
+/*
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
 
 var daysOfWeek = ["monday", "tuesday", "wednesday", "thursday", "friday"];
-/* GET home page. */
+/!* GET home page. *!/
 router.get('/today', function (req, res) {
     var day = new Date().getDay() - 1;
     var url = '/class/' + daysOfWeek[day];
@@ -15,7 +19,7 @@ router.get('/addform', function (req, res) {
         daysArr: daysOfWeek
     });
 });
-router.post('/addform/submit', function (req, res) {
+/!*router.post('/addform/submit', function (req, res) {
     for ()
         var classObj = {
             name: req.body.class,
@@ -25,7 +29,7 @@ router.post('/addform/submit', function (req, res) {
     res.render('submit', {
         nameOfForm: "Add Class"
     });
-});
+});*!/
 router.get('/:day', function (req, res, next) {
     var isValidDay = false;
     var day = req.params.day.toString().toLowerCase();
@@ -79,5 +83,10 @@ router.get('/:classname', function (req, res, next) {
             db.close();
         });
     })
+});
+*/
+
+router.get('/', function (req,res) {
+    res.render('test', {testObj: classController.scheduleGET()});
 });
 module.exports = router;

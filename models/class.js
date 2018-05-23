@@ -1,20 +1,17 @@
 var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/scheduleapp');
 var Schema = mongoose.Schema;
 
+var classSchema = new Schema(
+    {
+        name: String,
+        teacher: String,
+        mods: Array
+    },
+    {
+        collection: 'schoolschedule'
+    }
+);
+var Class = mongoose.model('Class', classSchema);
 
-var ClassSchema = new Schema({
-    name: {
-        type: String,
-        required: 'name cannot be blank'
-    },
-    teacher: {
-        type: String,
-        required: 'teacher cannot be blank'
-    },
-    monday: [{startmod: Number, endmod: Number}],
-    tuesday: [{startmod: Number, endmod: Number}],
-    wednesday: [{startmod: Number, endmod: Number}],
-    thursday: [{startmod: Number, endmod: Number}],
-    friday: [{startmod: Number, endmod: Number}],
-});
-mongoose.model('Class', ClassSchema);
+module.exports = Class;
